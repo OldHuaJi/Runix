@@ -4,6 +4,7 @@ public class ItemTransmutationRod extends BaseRod {
     
     public ItemTransmutationRod() {
         setUnlocalizedName("runix:transmutationrod");
+        setTextureName("minecraft:stick");//FIXME: LordIllyohs-Temporary till I fix the ItemRenderer for this
     }
     
     @Override
