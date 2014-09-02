@@ -13,7 +13,7 @@ public class ModelTransmutationRod extends ModelBase {
         
         Rod = new ModelRenderer(this, 0, 0);
         Rod.addBox(-1f, -15f, -1f, 2, 30, 2);
-        Rod.setRotationPoint(6f, 10f, 0f);
+        Rod.setRotationPoint(0f, 0f, 0f);
         Rod.setTextureSize(textureWidth, textureWidth);
         setRotation(Rod, 0f, 0f, 0f);
     }

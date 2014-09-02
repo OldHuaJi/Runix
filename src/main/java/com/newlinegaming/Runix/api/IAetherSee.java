@@ -1,4 +1,4 @@
-package com.newlinegaming.Runix.item.armor;
+package com.newlinegaming.Runix.api;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

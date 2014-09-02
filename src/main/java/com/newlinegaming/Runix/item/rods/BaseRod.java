@@ -3,6 +3,7 @@ package com.newlinegaming.Runix.item.rods;
 import java.util.List;
 
 import com.newlinegaming.Runix.RunixMain;
+import com.newlinegaming.Runix.api.energy.IItemEnergy;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,7 +15,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-public class BaseRod extends Item implements IRod {
+public class BaseRod extends Item implements IItemEnergy {
     
     public BaseRod() {
         super();

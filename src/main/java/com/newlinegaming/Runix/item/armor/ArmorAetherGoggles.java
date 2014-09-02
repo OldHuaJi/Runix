@@ -7,12 +7,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
-import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
 
 import com.newlinegaming.Runix.RunixMain;
+import com.newlinegaming.Runix.api.RunixApi;
 import com.newlinegaming.Runix.lib.RunixAsset;
 
 import cpw.mods.fml.relauncher.Side;
@@ -21,7 +20,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ArmorAetherGoggles extends ItemArmor implements ISpecialArmor {
 
     public ArmorAetherGoggles() {
-        super(RunixMain.armorRunix, 0 ,0);
+        super(RunixApi.armorRunix, 0 ,0);
         this.setUnlocalizedName("runix:aethergoggles");
         this.setCreativeTab(RunixMain.TabRunix);
 

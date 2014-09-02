@@ -1,11 +1,11 @@
-package com.newlinegaming.Runix.item.rods;
+package com.newlinegaming.Runix.api.energy;
 
-public interface IRod {
+public interface ITileEnergy {
     
     public int getCurrentEnergy();
     
     public int getMaxEnrgy();
     
     public int getMinEnergy();
-    
+
 }
