@@ -228,8 +228,6 @@ public abstract class AbstractRune {
 	 * @return true if there is a valid match
 	 */
     public WorldXYZ checkRunePattern(WorldXYZ coords) {
-        if(this instanceof BuildMasterRune)
-            System.out.println("Builder"); 
         HashMap<WorldXYZ, SigBlock> shape = runicFormulae(coords);
         if( !isAssymetrical()) {
             if(runeOrientationMatches(coords, shape))
@@ -416,7 +414,9 @@ public abstract class AbstractRune {
                             System.err.println("Block facing not recognized: " + centerPoint.face + " should be 0-5.");
                             target = centerPoint;
                     }
-                    shape.put(target, new SigBlock(pattern[y][z][x], 0));
+                    if(pattern[y][z][x] != NONE) { //do not include NONE blocks in the runic template at all.
+                        shape.put(target, new SigBlock(pattern[y][z][x], 0));
+                    }
                 }
             }
         }
@@ -433,8 +433,6 @@ public abstract class AbstractRune {
         for( WorldXYZ target : shape.keySet()){
             //for each block, get blockID
             Block blockID = target.getBlock();
-            if(shape.get(target).equals(NONE))
-                continue; // we don't consume these
             energy += Tiers.getEnergy(blockID);//convert ID into energy
             target.setBlockIdAndUpdate(Blocks.air);// delete the block
         }
@@ -535,5 +533,9 @@ public abstract class AbstractRune {
 
     public boolean isAssymetrical() {
         return false;
+    }
+
+    public HashSet<WorldXYZ> runeBlocks(WorldXYZ coords) {
+        return new HashSet<WorldXYZ>( runicFormulae(coords).keySet());
     }
 }
