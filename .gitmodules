@@ -1,0 +1,3 @@
+[submodule "src/main/resources/assets/runix/lang"]
+	path = src/main/resources/assets/runix/lang
+	url = https://github.com/Runix-Minecraft/Runix-Localization
