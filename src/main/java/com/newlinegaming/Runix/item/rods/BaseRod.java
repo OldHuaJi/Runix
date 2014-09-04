@@ -3,10 +3,12 @@ package com.newlinegaming.Runix.item.rods;
 import java.util.List;
 
 import com.newlinegaming.Runix.RunixMain;
+import com.newlinegaming.Runix.WorldXYZ;
 import com.newlinegaming.Runix.api.energy.IItemEnergy;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,8 +34,17 @@ public class BaseRod extends Item implements IItemEnergy {
     }
     
     @Override
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int sideHit, float hitVecX, float hitVecY, float hitVecZ){
+        return false;
+    }
+    
+    @Override
     public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player) {
+        
+//        Block block = world..
+        
         if (is.stackTagCompound != null) {
+            
             //HitBlock
                 //if mode == eat consume block | Will be done with oracle
                 //if mode == Transmute transmute block
