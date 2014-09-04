@@ -31,26 +31,24 @@ public class BaseRod extends Item implements IItemEnergy {
         is.stackTagCompound.setInteger("MinEnergy", getMinEnergy());
         is.stackTagCompound.setInteger("MaxEnergy", getMaxEnrgy());
         is.stackTagCompound.setInteger("CurrentEnergy", getCurrentEnergy());
+        is.stackTagCompound.setInteger("Charge", getCharge());
+        
+        is.stackTagCompound.setString("Mode", getMode());
     }
     
+    public String getMode() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public int getCharge() {
+        return 0;
+    }
+
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int sideHit, float hitVecX, float hitVecY, float hitVecZ){
+        
         return false;
-    }
-    
-    @Override
-    public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player) {
-        
-//        Block block = world..
-        
-        if (is.stackTagCompound != null) {
-            
-            //HitBlock
-                //if mode == eat consume block | Will be done with oracle
-                //if mode == Transmute transmute block
-                //if mode == Rinic activator activate rune
-        }
-        return is;
     }
 
     @Override

@@ -22,7 +22,7 @@ public class KeyHandler {
 		
 		public void init() {
 			
-			CHARGE = new KeyBinding("key.transmode", Keyboard.KEY_C, "key.catergories.runix");
+			CHARGE = new KeyBinding("key.changesmode", Keyboard.KEY_C, "key.catergories.runix");
 			
 		}
 		
