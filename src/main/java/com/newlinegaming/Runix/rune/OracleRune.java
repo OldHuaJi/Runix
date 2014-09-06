@@ -2,12 +2,6 @@ package com.newlinegaming.Runix.rune;
 
 import java.util.ArrayList;
 
-import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.handlers.RuneHandler;
-import com.newlinegaming.Runix.AbstractRune;
-import com.newlinegaming.Runix.Tiers;
-import com.newlinegaming.Runix.WorldXYZ;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -15,8 +9,17 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
+import com.newlinegaming.Runix.AbstractRune;
+import com.newlinegaming.Runix.PersistentRune;
+import com.newlinegaming.Runix.Tiers;
+import com.newlinegaming.Runix.WorldXYZ;
+import com.newlinegaming.Runix.handlers.RuneHandler;
+import com.newlinegaming.Runix.item.rods.BaseRod;
+
 public class OracleRune extends AbstractRune {
     
+    private int current;
+
     public OracleRune() {
         runeName = ("Oracle Rune");
     }
@@ -42,6 +45,7 @@ public class OracleRune extends AbstractRune {
     @Override
     public void execute(WorldXYZ coords, EntityPlayer player) {
       ItemStack toolUsed = player.getHeldItem();
+//      BaseRod rod = rod.setEnergy(current);
       
       if(toolUsed !=null && toolUsed.getItem() == Items.golden_sword || 
               toolUsed !=null && toolUsed.getItem() == Items.stone_sword || 
@@ -54,8 +58,10 @@ public class OracleRune extends AbstractRune {
               aetherSay(player, r.runeName + " Energy: "+ r.energy);
           }
           
-      } else {
+      } else if(toolUsed !=null && toolUsed.getItem() instanceof BaseRod) {
           
+          
+      } else {    
           Block block = coords.getBlock();
           
           aetherSay(player, EnumChatFormatting.RED +block.getLocalizedName());
@@ -66,4 +72,5 @@ public class OracleRune extends AbstractRune {
       }
       
     }
+    
 }

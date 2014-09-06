@@ -19,65 +19,73 @@ import net.minecraft.world.World;
 
 public class BaseRod extends Item implements IItemEnergy {
     
+    public int current;
+    public int max;
+    public int min;
+    
     public BaseRod() {
         super();
         setCreativeTab(RunixMain.TabRunix);
         setMaxStackSize(1);
+        getCurrentEnergy(current);
     }
     
     @Override
     public void onCreated(ItemStack is, World world, EntityPlayer player) {
         is.stackTagCompound = new NBTTagCompound();
-        is.stackTagCompound.setInteger("MinEnergy", getMinEnergy());
-        is.stackTagCompound.setInteger("MaxEnergy", getMaxEnrgy());
-        is.stackTagCompound.setInteger("CurrentEnergy", getCurrentEnergy());
-        is.stackTagCompound.setInteger("Charge", getCharge());
         
+        //Energy
+        is.stackTagCompound.setInteger("MinEnergy", getMinEnergy(min));
+        
+        is.stackTagCompound.setInteger("MaxEnergy", getMaxEnrgy(max));
+        
+        is.stackTagCompound.setInteger("CurrentEnergy", getCurrentEnergy(current));
+//        is.stackTagCompound.setInteger("Charge", getCharge(int charge));
+        //Mode
         is.stackTagCompound.setString("Mode", getMode());
     }
     
+    public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player) {
+        return is;    
+    }
+    
     public String getMode() {
-        // TODO Auto-generated method stub
         return null;
     }
 
-    public int getCharge() {
-        return 0;
+    public int getCharge(int charge) {
+        return charge;
+    }
+   
+    @Override
+    public int getCurrentEnergy(int current) {
+        return current;
     }
 
     @Override
-    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int sideHit, float hitVecX, float hitVecY, float hitVecZ){
-        
-        return false;
+    public int getMaxEnrgy(int max) {
+        return max;
     }
 
     @Override
-    public int getCurrentEnergy() {
-        return 0;
-    }
-
-    @Override
-    public int getMaxEnrgy() {
-        return 0;
-    }
-
-    @Override
-    public int getMinEnergy() {
-        return 0;
+    public int getMinEnergy(int min) {
+        return min;
     }
     
-  @SuppressWarnings({ "rawtypes", "unchecked" })
-  @Override
-  @SideOnly(Side.CLIENT)
-  public void addInformation(ItemStack is, EntityPlayer player, List list, boolean par4) {
-      if (is.stackTagCompound !=null) {
-          int max = is.stackTagCompound.getInteger("MaxEnergy");
-          int current = is.stackTagCompound.getInteger("CurrentEnergy");
-          
-          list.add(StatCollector.translateToLocal(EnumChatFormatting.DARK_PURPLE + "This has: " + EnumChatFormatting.DARK_AQUA + current + " Energy"));
-          list.add(StatCollector.translateToLocal(EnumChatFormatting.DARK_PURPLE + "This rod can hold: " + EnumChatFormatting.DARK_AQUA + max + " Energy" ));
-      }
+    
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack is, EntityPlayer player, List list, boolean par4) {
+        if (is.stackTagCompound !=null) {
+            int max = is.stackTagCompound.getInteger("MaxEnergy");
+            int current = is.stackTagCompound.getInteger("CurrentEnergy");
+
+            list.add(StatCollector.translateToLocal(EnumChatFormatting.DARK_PURPLE + "This has: " + EnumChatFormatting.DARK_AQUA + current + " Energy"));
+            list.add(StatCollector.translateToLocal(EnumChatFormatting.DARK_PURPLE + "This rod can hold: " + EnumChatFormatting.DARK_AQUA + max + " Energy" ));
+        }
       
   }
+
   
 }
