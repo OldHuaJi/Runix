@@ -497,6 +497,12 @@ public abstract class AbstractRune {
         return false;
     }
 
+    protected boolean consumeFuelToAir(WorldXYZ coords) {
+        energy += Tiers.getEnergy(coords.getBlock());
+        coords.setBlockIdAndUpdate(Blocks.air);
+        return true;
+    }
+
     protected String shortClassName() {
         return this.getClass().toString().replace("class com.newlinegaming.Runix.rune.", "");
     }

@@ -1,7 +1,9 @@
 package com.newlinegaming.Runix.item.rods;
 
-import java.util.List;
-
+import com.newlinegaming.Runix.RunixMain;
+import com.newlinegaming.Runix.api.energy.IItemEnergy;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,17 +12,9 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import com.newlinegaming.Runix.RunixMain;
-import com.newlinegaming.Runix.api.energy.IItemEnergy;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class BaseRod extends Item implements IItemEnergy {
-    
-    int currnetEnergy;
-    int maxEnergy;
-    int minEnergy;
     
     public BaseRod() {
         super();
@@ -35,9 +29,9 @@ public class BaseRod extends Item implements IItemEnergy {
         //Energy
 //        is.stackTagCompound.setInteger("MinEnergy", getMinEnergy(minEnergy));
         
-//        is.stackTagCompound.setInteger("MaxEnergy", getMaxEnrgy(maxEnergy));
+//        is.stackTagCompound.setInteger("MaxEnergy", getMaxEnergy(maxEnergy));
         
-        is.stackTagCompound.setInteger("CurrentEnergy", getCurrentEnergy(currnetEnergy));
+        is.stackTagCompound.setInteger("CurrentEnergy", 0);
         //Mode
 //        is.stackTagCompound.setString("Mode", getMode());
     }
@@ -53,26 +47,27 @@ public class BaseRod extends Item implements IItemEnergy {
         return null;
     }
 
-    public int getCharge(int charge) {
-        //TODO set charge sizes for the 
-        return charge;
-    }
-   
+//    public int getCharge(int charge) {
+//        //TODO set charge sizes for the
+//        return charge;
+//    }
     @Override
-    public int getCurrentEnergy(int current) {
-        return current;
+    public int setCurrentEnergy(ItemStack is, int energy){
+        int oldEnergy = getCurrentEnergy(is);
+        is.stackTagCompound = new NBTTagCompound();
+        is.stackTagCompound.setInteger("CurrentEnergy", energy + oldEnergy);
+        return getCurrentEnergy(is);
     }
 
     @Override
-    public int getMaxEnrgy(int max) {
+    public int getCurrentEnergy(ItemStack is) {
+        return is.stackTagCompound.getInteger("CurrentEnergy");
+    }
+
+    @Override
+    public int getMaxEnergy(ItemStack is,int max) {
         return max;
     }
-
-    @Override
-    public int getMinEnergy(int min) {
-        return min;
-    }
-    
     
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override

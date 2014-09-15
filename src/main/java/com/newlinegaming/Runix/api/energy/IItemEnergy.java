@@ -1,20 +1,19 @@
 package com.newlinegaming.Runix.api.energy;
 
+import net.minecraft.item.ItemStack;
+
 public interface IItemEnergy {
     
     /*
      * Gets the current amount of energy an item has
      */
-    public int getCurrentEnergy(int current);
-    
+    public int getCurrentEnergy(ItemStack is);
+
+    public int setCurrentEnergy(ItemStack is, int current);
+
     /*
      * Sets the maximum energy an item can hold
      */
-    public int getMaxEnrgy(int max);
-    
-    /*
-     * Sets the minimum amount of energy and item can hold
-     * Note: should always be zero
-     */
-    public int getMinEnergy(int min);
+    public int getMaxEnergy(ItemStack is, int max);
+
 }

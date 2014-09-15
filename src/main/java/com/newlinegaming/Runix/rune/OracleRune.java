@@ -1,7 +1,11 @@
 package com.newlinegaming.Runix.rune;
 
-import java.util.ArrayList;
-
+import com.newlinegaming.Runix.AbstractRune;
+import com.newlinegaming.Runix.PersistentRune;
+import com.newlinegaming.Runix.Tiers;
+import com.newlinegaming.Runix.WorldXYZ;
+import com.newlinegaming.Runix.handlers.RuneHandler;
+import com.newlinegaming.Runix.item.ModItem;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -9,11 +13,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
-import com.newlinegaming.Runix.AbstractRune;
-import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.Tiers;
-import com.newlinegaming.Runix.WorldXYZ;
-import com.newlinegaming.Runix.handlers.RuneHandler;
+import java.util.ArrayList;
 
 public class OracleRune extends AbstractRune {
 
@@ -23,14 +23,14 @@ public class OracleRune extends AbstractRune {
 
     @Override
     protected Block[][][] runicTemplateOriginal() {
-        
+
         Block RED = Blocks.redstone_wire;
-        
+
         return new Block[][][] {{
-            {RED, RED ,RED},
-            {RED, TIER, RED},
-            {RED, RED, RED}
-            
+                {RED, RED ,RED},
+                {RED, TIER, RED},
+                {RED, RED, RED}
+
         }};
     }
 
@@ -41,30 +41,35 @@ public class OracleRune extends AbstractRune {
 
     @Override
     public void execute(WorldXYZ coords, EntityPlayer player) {
-      ItemStack toolUsed = player.getHeldItem();
+        ItemStack toolUsed = player.getHeldItem();
 //      BaseRod rod = rod.setEnergy(current);
-      
-      if(toolUsed !=null && toolUsed.getItem() == Items.golden_sword || 
-              toolUsed !=null && toolUsed.getItem() == Items.stone_sword || 
-              toolUsed !=null && toolUsed.getItem() == Items.wooden_sword ||
-              toolUsed !=null && toolUsed.getItem() == Items.diamond_sword) {
-          
-          ArrayList<PersistentRune> d = RuneHandler.getInstance().getAllRunesByPlayer(player);
-          aetherSay(player, "Current enchantments: " + Integer.toString(d.size()));
-          for (PersistentRune r : d) {
-              aetherSay(player, r.runeName + " Energy: "+ r.energy);
-          }
-          
-      } else {    
-          Block block = coords.getBlock();
-          
-          aetherSay(player, EnumChatFormatting.RED +block.getLocalizedName());
-          aetherSay(player, "Tier: "  + Tiers.getTier(block) + ".");
-          aetherSay(player, "Energy: " + Tiers.getEnergy(block) + ".");
-          aetherSay(player, "Properties: " + (Tiers.isNatural(block)? "Not Conductive" : "Conductive")
-                  + ", " + (Tiers.isCrushable(block)? "Crushable." : "Not Crushable."));
-      }
-      
+
+        if(toolUsed !=null && toolUsed.getItem() == Items.golden_sword ||
+                toolUsed !=null && toolUsed.getItem() == Items.stone_sword ||
+                toolUsed !=null && toolUsed.getItem() == Items.wooden_sword ||
+                toolUsed !=null && toolUsed.getItem() == Items.diamond_sword) {
+
+            ArrayList<PersistentRune> d = RuneHandler.getInstance().getAllRunesByPlayer(player);
+            aetherSay(player, "Current enchantments: " + Integer.toString(d.size()));
+            for (PersistentRune r : d) {
+                aetherSay(player, r.runeName + " Energy: " + r.energy);
+            }
+        }else {
+            if (toolUsed !=null && toolUsed.getItem() == ModItem.transRod) {
+                consumeFuelToAir(coords);
+                ModItem.transRod.setCurrentEnergy(toolUsed, energy);
+
+            } else {
+                Block block = coords.getBlock();
+
+                aetherSay(player, EnumChatFormatting.RED +block.getLocalizedName());
+                aetherSay(player, "Tier: "  + Tiers.getTier(block) + ".");
+                aetherSay(player, "Energy: " + Tiers.getEnergy(block) + ".");
+                aetherSay(player, "Properties: " + (Tiers.isNatural(block)? "Not Conductive" : "Conductive")
+                        + ", " + (Tiers.isCrushable(block)? "Crushable." : "Not Crushable."));
+            }
+        }
+
     }
-    
+
 }
