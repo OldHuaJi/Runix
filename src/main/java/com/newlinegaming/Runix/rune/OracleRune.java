@@ -14,11 +14,8 @@ import com.newlinegaming.Runix.PersistentRune;
 import com.newlinegaming.Runix.Tiers;
 import com.newlinegaming.Runix.WorldXYZ;
 import com.newlinegaming.Runix.handlers.RuneHandler;
-import com.newlinegaming.Runix.item.rods.BaseRod;
 
 public class OracleRune extends AbstractRune {
-    
-    private int current;
 
     public OracleRune() {
         runeName = ("Oracle Rune");
@@ -57,9 +54,6 @@ public class OracleRune extends AbstractRune {
           for (PersistentRune r : d) {
               aetherSay(player, r.runeName + " Energy: "+ r.energy);
           }
-          
-      } else if(toolUsed !=null && toolUsed.getItem() instanceof BaseRod) {
-          
           
       } else {    
           Block block = coords.getBlock();
