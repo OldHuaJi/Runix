@@ -6,7 +6,6 @@ import com.newlinegaming.Runix.PersistentRune;
 import com.newlinegaming.Runix.handlers.RuneHandler;
 import com.newlinegaming.Runix.AbstractRune;
 import com.newlinegaming.Runix.Tiers;
-import com.newlinegaming.Runix.WorldXYZ;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +13,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class OracleRune extends AbstractRune {
     

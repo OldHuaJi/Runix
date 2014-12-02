@@ -11,9 +11,11 @@ import net.minecraft.world.World;
 import com.newlinegaming.Runix.AbstractTimedRune;
 import com.newlinegaming.Runix.NotEnoughRunicEnergyException;
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.utils.Util_SphericalFunctions;
-import com.newlinegaming.Runix.Vector3;
-import com.newlinegaming.Runix.WorldXYZ;
+
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.shapes.UtilSphericalFunctions;
+import us.illyohs.azathoth.world.WorldXYZ;
+
 
 public class ZeerixChestRune extends AbstractTimedRune {
     protected static ArrayList<PersistentRune> activeMagic = new ArrayList<PersistentRune>();
@@ -34,11 +36,11 @@ public class ZeerixChestRune extends AbstractTimedRune {
         {
             double distance = (new WorldXYZ(getPlayer())).getDistance(location);//distance from player to current chest
             if( distance > 6.0){
-                HashSet<WorldXYZ> sphere = Util_SphericalFunctions.getShell(new WorldXYZ(getPlayer()), 4);
+                HashSet<WorldXYZ> sphere = UtilSphericalFunctions.getShell(new WorldXYZ(getPlayer()), 4);
                 for(WorldXYZ newPos : sphere)
                 {
                     if(newPos.getBlock() == Blocks.air 
-                            && newPos.offset(Vector3.DOWN).isSolid()// base is solid 
+                            && newPos.offset(Vector3.DOWN).isSolid()// base is solid
                             && !newPos.offset(Vector3.UP).isSolid()){//room to open lid
                         try{
                             if(location.getBlock() != Blocks.ender_chest)

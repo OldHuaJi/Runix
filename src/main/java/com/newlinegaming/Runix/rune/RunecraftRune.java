@@ -16,7 +16,6 @@ import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
 import com.newlinegaming.Runix.AbstractTimedRune;
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.WorldXYZ;
 import com.newlinegaming.Runix.helper.LogHelper;
 import com.newlinegaming.Runix.helper.RenderHelper;
 import com.newlinegaming.Runix.utils.Util_Movement;
@@ -24,6 +23,8 @@ import com.newlinegaming.Runix.utils.Util_Movement;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class RunecraftRune extends AbstractTimedRune {
     
@@ -41,8 +42,7 @@ public class RunecraftRune extends AbstractTimedRune {
      * @param coords Center rune block that the vehicle is checked from 
      * @param player2 Person that the vehicle gloms on to
      */
-    public RunecraftRune(WorldXYZ coords, EntityPlayer player2)
-    {
+    public RunecraftRune(WorldXYZ coords, EntityPlayer player2) {
         super(coords, player2, "Runecraft");
         setPlayer(null); //this is because poke() acts as if the Rune was activated a second time when it is first constructed
         this.runeName = "Runecraft"; 

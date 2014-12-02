@@ -1,7 +1,6 @@
 package com.newlinegaming.Runix.rune;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 
 import net.minecraft.block.Block;
@@ -12,9 +11,10 @@ import com.newlinegaming.Runix.NotEnoughRunicEnergyException;
 import com.newlinegaming.Runix.PersistentRune;
 import com.newlinegaming.Runix.Tiers;
 import com.newlinegaming.Runix.block.ModBlock;
-import com.newlinegaming.Runix.utils.Util_Movement;
-import com.newlinegaming.Runix.utils.Util_SphericalFunctions;
-import com.newlinegaming.Runix.WorldXYZ;
+
+import us.illyohs.azathoth.shapes.UtilSphericalFunctions;
+import us.illyohs.azathoth.world.WorldXYZ;
+
 
 public class FaithRune extends PersistentRune{
 	
@@ -84,7 +84,7 @@ public class FaithRune extends PersistentRune{
     @Override
     public HashSet<WorldXYZ> fullStructure() {
         if(sphere == null)
-            sphere = Util_SphericalFunctions.getSphere(location, radius);
+            sphere = UtilSphericalFunctions.getSphere(location, radius);
         return sphere;
     }
     

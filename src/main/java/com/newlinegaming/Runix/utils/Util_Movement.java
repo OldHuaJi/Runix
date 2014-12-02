@@ -11,6 +11,9 @@ import com.newlinegaming.Runix.workers.StructureMoveWorker;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.SigBlock;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class Util_Movement {
 

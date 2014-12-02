@@ -29,6 +29,8 @@ import com.newlinegaming.Runix.utils.Util_Movement;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public abstract class PersistentRune extends AbstractRune {
 

@@ -2,6 +2,7 @@ package com.newlinegaming.Runix.rune;
 
 import java.util.ArrayList;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -11,10 +12,10 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
 import com.newlinegaming.Runix.NotEnoughRunicEnergyException;
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.Vector3;
-import com.newlinegaming.Runix.WorldXYZ;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 
 /**Elevator that ferries player up and down based on open spaces.  Doesn't consume energy.**/

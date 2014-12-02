@@ -12,11 +12,12 @@ import net.minecraft.init.Blocks;
 import com.newlinegaming.Runix.AbstractTimedRune;
 import com.newlinegaming.Runix.NotEnoughRunicEnergyException;
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.SigBlock;
 import com.newlinegaming.Runix.Tiers;
-import com.newlinegaming.Runix.Vector3;
-import com.newlinegaming.Runix.WorldXYZ;
 import com.newlinegaming.Runix.utils.Util_Movement;
+
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.SigBlock;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class BuildMasterRune extends AbstractTimedRune {
     protected static ArrayList<PersistentRune> activeMagic = new ArrayList<PersistentRune>();

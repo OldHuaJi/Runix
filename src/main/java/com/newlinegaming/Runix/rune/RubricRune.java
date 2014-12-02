@@ -15,16 +15,18 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
-import com.newlinegaming.Runix.BlockRecord;
+
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.SigBlock;
-import com.newlinegaming.Runix.Vector3;
-import com.newlinegaming.Runix.WorldXYZ;
 import com.newlinegaming.Runix.helper.RenderHelper;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.BlockRecord;
+import us.illyohs.azathoth.world.SigBlock;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 
 public class RubricRune extends PersistentRune {
@@ -38,7 +40,7 @@ public class RubricRune extends PersistentRune {
         usesConductance = true;
     }
 
-    public RubricRune(WorldXYZ coords, EntityPlayer player2) 
+    public RubricRune(WorldXYZ coords, EntityPlayer player2)
     {
 	    super(coords, player2,"Rubric");
 	    usesConductance = true;

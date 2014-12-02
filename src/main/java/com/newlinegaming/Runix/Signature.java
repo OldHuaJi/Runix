@@ -8,6 +8,9 @@ import java.util.HashMap;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 
+import us.illyohs.azathoth.world.SigBlock;
+import us.illyohs.azathoth.world.WorldXYZ;
+
 public class Signature {
     
     public ArrayList<SigBlock> blocks;

@@ -9,10 +9,11 @@ import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.newlinegaming.Runix.AbstractTimedRune;
-import com.newlinegaming.Runix.BlockRecord;
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.Vector3;
-import com.newlinegaming.Runix.WorldXYZ;
+
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.BlockRecord;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class DomainRune extends AbstractTimedRune {
 

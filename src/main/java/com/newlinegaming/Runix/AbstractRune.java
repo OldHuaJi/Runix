@@ -22,6 +22,9 @@ import com.newlinegaming.Runix.handlers.RuneHandler;
 import com.newlinegaming.Runix.rune.BuildMasterRune;
 import com.newlinegaming.Runix.rune.WaypointRune;
 import com.newlinegaming.Runix.utils.Util_Movement;
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.SigBlock;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 /**
  * This class contains the basic functions that runes will use to execute their functions.  Any reusable code or concepts should go in

@@ -2,11 +2,10 @@ package com.newlinegaming.Runix.helper;
 
 import java.util.Collection;
 
-import com.newlinegaming.Runix.WorldXYZ;
-
 import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.opengl.GL11;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class RenderHelper {
 

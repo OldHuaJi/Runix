@@ -7,9 +7,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 
 import com.newlinegaming.Runix.AbstractRune;
-import com.newlinegaming.Runix.SigBlock;
-import com.newlinegaming.Runix.WorldXYZ;
 import com.newlinegaming.Runix.block.ModBlock;
+
+import us.illyohs.azathoth.world.SigBlock;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class LightBeamRune extends AbstractRune {
     

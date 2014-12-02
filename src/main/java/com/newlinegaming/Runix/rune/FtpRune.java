@@ -8,8 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.WorldXYZ;
-import com.newlinegaming.Runix.workers.IBlockWorker;
+
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class FtpRune extends TeleporterRune {
     

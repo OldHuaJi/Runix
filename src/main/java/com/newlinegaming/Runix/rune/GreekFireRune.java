@@ -12,14 +12,16 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
 import com.newlinegaming.Runix.AbstractRune;
 import com.newlinegaming.Runix.Tiers;
-import com.newlinegaming.Runix.Vector3;
-import com.newlinegaming.Runix.WorldXYZ;
 import com.newlinegaming.Runix.block.GreekFire;
 import com.newlinegaming.Runix.block.ModBlock;
 import com.newlinegaming.Runix.utils.Util_Movement;
-import com.newlinegaming.Runix.utils.Util_SphericalFunctions;
+
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.shapes.UtilSphericalFunctions;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class GreekFireRune extends AbstractRune {
     
@@ -73,7 +75,7 @@ public class GreekFireRune extends AbstractRune {
         coords.setBlockIdAndUpdate(Blocks.lapis_block); // this just got consumed
         int newLife = Math.max(15 - Tiers.energyToRadiusConversion(energy - Tiers.getEnergy(Blocks.lapis_block),
                 Tiers.blockBreakCost), 0); //radius calculation
-        HashSet<WorldXYZ> shell = Util_SphericalFunctions.getShell(coords, 1);
+        HashSet<WorldXYZ> shell = UtilSphericalFunctions.getShell(coords, 1);
         for(WorldXYZ point : shell){
             point.setBlock(ModBlock.greekFire, newLife);
         }

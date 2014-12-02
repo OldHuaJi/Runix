@@ -8,10 +8,8 @@ import java.util.Map.Entry;
 
 import net.minecraft.init.Blocks;
 
-import com.newlinegaming.Runix.SigBlock;
 import com.newlinegaming.Runix.Tiers;
-import com.newlinegaming.Runix.Vector3;
-import com.newlinegaming.Runix.WorldXYZ;
+
 import com.newlinegaming.Runix.handlers.RuneHandler;
 import com.newlinegaming.Runix.helper.LogHelper;
 import com.newlinegaming.Runix.lib.LibConfig;
@@ -19,6 +17,9 @@ import com.newlinegaming.Runix.lib.LibConfig;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.SigBlock;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class StructureMoveWorker implements IBlockWorker {
 

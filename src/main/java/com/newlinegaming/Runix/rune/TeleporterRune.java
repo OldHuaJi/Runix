@@ -7,7 +7,9 @@ import net.minecraft.entity.player.EntityPlayer;
 
 import com.newlinegaming.Runix.NotEnoughRunicEnergyException;
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.WorldXYZ;
+
+import us.illyohs.azathoth.world.WorldXYZ;
+
 
 public class TeleporterRune extends PersistentRune {
 

@@ -20,8 +20,6 @@ import net.minecraftforge.event.world.WorldEvent.Save;
 
 import com.newlinegaming.Runix.AbstractRune;
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.Vector3;
-import com.newlinegaming.Runix.WorldXYZ;
 import com.newlinegaming.Runix.helper.LogHelper;
 import com.newlinegaming.Runix.rune.BuildMasterRune;
 import com.newlinegaming.Runix.rune.CompassRune;
@@ -39,6 +37,8 @@ import com.newlinegaming.Runix.rune.WaypointRune;
 import com.newlinegaming.Runix.rune.ZeerixChestRune;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import us.illyohs.azathoth.math.Vector3;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 
 /**

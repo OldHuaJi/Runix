@@ -3,6 +3,7 @@ package com.newlinegaming.Runix;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public abstract class AbstractTimedRune extends PersistentRune {
 

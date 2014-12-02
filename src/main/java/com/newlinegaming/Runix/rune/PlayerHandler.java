@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import net.minecraft.block.Block;
 
 import com.newlinegaming.Runix.PersistentRune;
-import com.newlinegaming.Runix.WorldXYZ;
+
+import us.illyohs.azathoth.world.WorldXYZ;
 
 /**
  * PlayerHandler is a persistent rune because we would like to use the same saving and loading functionality.

@@ -3,12 +3,13 @@ package com.newlinegaming.Runix.rune;
 import java.util.HashMap;
 
 import com.newlinegaming.Runix.AbstractRune;
-import com.newlinegaming.Runix.SigBlock;
-import com.newlinegaming.Runix.WorldXYZ;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+
+import us.illyohs.azathoth.world.SigBlock;
+import us.illyohs.azathoth.world.WorldXYZ;
 
 public class CompassRune extends AbstractRune{
 

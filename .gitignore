@@ -22,3 +22,6 @@ setupidea.bat
 /assets
 /remote.properties
 /logs
+
+libs
+run
