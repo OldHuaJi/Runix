@@ -26,13 +26,19 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
+task buildInfo {
+    def cmd = "git rev-parse --short HEAD"
+    def proc = cmd.execute()
+    ext.sha = proc.text.trim()
+}
+
 def ENV = System.getenv()
 if (ENV.BUILD_ID) {
-	version += "${config.mc_version}-${config.mod_version}.${config.release_status}." + ENV.DRONE_BUILD_NUMBER
+	version += "${config.mc_version}-${config.mod_version}.${project.buildInfo.sha}.${config.release_status}."
 } else {
 	version += "${config.mc_version}-${config.mod_version}.${config.release_status}.local"
 }
-group= "${config.group}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "${config.group}"
 archivesBaseName = "${config.name}"
 
 sourceCompatibility = 1.7
@@ -73,66 +79,15 @@ processResources {
     }
 }
 
-configurations {
-    deployerJars
-}
 
 repositories {
     mavenCentral()
+    ivy {
+        name "Azathoth"
+        artifactPattern "http://addons.cursecdn.com/files/2221/167/[module]-[revision].[ext]"
+    }
 }
 
 dependencies {
-    deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
-}
-
-if (ENV.SC_MAVEN_URL) {
-	uploadArchives {
-		repositories.mavenDeployer {
-			configuration = configurations.deployerJars
-			repository(url: ENV.SC_MAVEN_URL) {
-				authentication(userName: ENV.SC_MAVEN_USER, password: ENV.SC_MAVEN_PASS)
-			}
-			
-			pom {
-				groupId = project.group
-				version = project.version
-				artifactId = project.archivesBaseName
-				project {
-					name project.archivesBaseName
-					packaging 'jar'
-					description 'runix'
-					url 'https://github.com/runix-Minecraft/runix'
-					
-						 scm {
-						 	url 'https://github.com/runix-Minecraft/runix'
-                            connection 'scm:git:git://github.com/runix-Minecraft/runix.git'
-                            developerConnection 'scm:git:git@github.com:runix-Minecraft/runix.git'
-                        }
-                        
-                        issueManagement {
-                            system 'github'
-                            url 'https://github.com/runix-Minecraft/runix/issues'
-                        }
-                        
-                        developers {
-                            developer {
-                                id 'josiahseaman'
-                                name 'Josiah Seaman'
-                                roles { role 'developer' }
-                            }
-                            developer {
-                                id 'LordIllyohs'
-                                name 'Anthony Anderson'
-                                roles { role 'developer' }
-                            }
-                            developer {
-                            	id 'RivkiinShadows'
-                            	name 'Rivkiin Shadows'
-                            	roles {role 'developer'}
-                            }
-                        }
-				}
-			}
-		}
-	}
+    compile name: 'Azathoth', version: '1.7.10-0.5.f5787d2.beta-DEV', ext: 'jar'
 }
