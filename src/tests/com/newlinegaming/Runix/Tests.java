@@ -1,6 +1,8 @@
 package com.newlinegaming.runix;
 
 import static org.junit.Assert.*;
+
+import com.newlinegaming.runix.rune.AbstractRune;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 

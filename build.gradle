@@ -34,9 +34,9 @@ task buildInfo {
 
 def ENV = System.getenv()
 if (ENV.BUILD_ID) {
-	version += "${config.mc_version}-${config.mod_version}.${project.buildInfo.sha}.${config.release_status}."
+	version = "${config.mc_version}-${config.mod_version}.${project.buildInfo.sha}.${config.release_status}"
 } else {
-	version += "${config.mc_version}-${config.mod_version}.${config.release_status}.local"
+	version = "${config.mc_version}-${config.mod_version}.${config.release_status}.local"
 }
 group= "${config.group}"
 archivesBaseName = "${config.name}"
