@@ -7,6 +7,7 @@ import com.newlinegaming.runix.rune.RunixRune;
 import com.newlinegaming.runix.rune.handlers.RuneHandler;
 import com.newlinegaming.runix.core.lib.LibInfo;
 
+import com.newlinegaming.runix.world.RunixWorld;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -19,7 +20,7 @@ import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import us.illyohs.azathoth.pulsar.config.ForgeCFG;
 import us.illyohs.azathoth.pulsar.control.PulseManager;
 
-@Mod(modid = LibInfo.MOD_ID, name = LibInfo.MOD_NAME, version = LibInfo.MOD_VERSION)
+@Mod(modid = LibInfo.MOD_ID, name = LibInfo.MOD_NAME, version = LibInfo.MOD_VERSION, dependencies = "required-after:Azathoth")
 public class RunixMain {
 
 
@@ -33,6 +34,7 @@ public class RunixMain {
     public void preInit(FMLPreInitializationEvent event) {
 
         puls.registerPulse(new RunixRune());
+        puls.registerPulse(new RunixWorld());
 
         puls.preInit(event);
 
